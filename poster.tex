@@ -1,43 +1,34 @@
 \documentclass[final]{beamer}
 \usetheme{mjw}
 
-\usepackage[orientation=landscape,size=a0,scale=2,debug]{beamerposter}
+\usepackage[orientation=landscape,size=a0,scale=1.75,debug]{beamerposter}
+\usepackage{colortbl}
+\usepackage{cpp}
+\usepackage{tabularx}
+\usepackage{tikz}
 
 \title{Building Debuggable Distributed Systems with Fluent}
-\author{
-  Jose Faleiro,%
-  Cristina Teodoropol,%
-  Michael Whittaker,%
-  Chenggang Wu,%
-  Joe Hellerstein,%
-  Erik Meijer%
+\author{%
+  Jose Faleiro,
+  Cristina Teodoropol,
+  Michael Whittaker,
+  Chenggang Wu,
+  Joe Hellerstein,
+  Erik Meijer
 }
 
 \begin{document}
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \begin{columns}[t]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Foo}
-        aeoifha eoifha eofiahefoaeofiaeofiahefoi ahefo
-        aiehfoaiefaoeifaeoifhaeoi fhaoiehfaoiehfaoiehfao eihfoaie hfoiah efoiah
-        foiaheof iha eoifh aoiehf aoiehfaoiehf oaiehf oaiehfoaiehfoaiehfoiahe
-        foaihe foiahe foaihefoiahe foiahefoiaheofiahefoineasraisrg
-      \end{block}
-
-      \begin{block}{Bar}
-        \begin{itemize}
-          \item some items
-          \item some items
-          \item some items
-          \item some items
-        \end{itemize}
-      \end{block}
+    \begin{column}{0.45\textwidth}
+      {\input{fluent}}
+      {\input{history}}
     \end{column}
 
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Baz}
-        \includegraphics[width=\textwidth]{rise_logo.jpg}
-      \end{block}
+    \begin{column}{0.45\textwidth}
+      {\input{lineage}}
+      {\input{black_boxes}}
+      {\input{tracing}}
     \end{column}
   \end{columns}
 \end{frame}
