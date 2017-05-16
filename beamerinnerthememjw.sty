@@ -1,0 +1,16 @@
+\mode<presentation>
+
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[rounded=true,shadow=true,leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[rounded=true,shadow=true,colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \usebeamerfont{block body}%
+}
+
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+\mode<all>

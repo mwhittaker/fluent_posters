@@ -1,0 +1,25 @@
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{0.05\paperwidth}
+      \end{column}
+      \begin{column}{0.65\paperwidth}
+        \vspace{2cm}
+        \usebeamercolor{title in headline}{%
+          \color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]
+        }
+        \usebeamercolor{author in headline}{%
+          \color{fg}\large{\insertauthor}\\[1ex]
+        }
+      \end{column}
+      \begin{column}{0.25\paperwidth}
+        \vspace{2cm}
+        \begin{center}
+          \includegraphics[width=.7\linewidth]{rise_logo.jpg}
+        \end{center}
+      \end{column}
+      \begin{column}{0.05\paperwidth}
+      \end{column}
+    \end{columns}
+  \end{beamercolorbox}
+}
