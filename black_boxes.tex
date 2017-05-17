@@ -1,0 +1,62 @@
+\begin{block}{Black Boxes}
+  \begin{center}
+    \ttfamily
+
+    \begin{minipage}{0.47\textwidth}
+      get\_response
+
+      \vspace{0.5cm}
+
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline\rowcolor{red!20}
+        hash   & time+ & time- & id & v \\\hline
+        0xF091 & 10    & 11    & 0  & yolo \\\hline
+        0x9412 & 20    & 21    & 1  & yolo \\\hline
+        0x9103 & 30    & 31    & 2  & zardoz \\\hline
+      \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.47\textwidth}
+      get\_request
+
+      \vspace{0.5cm}
+
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline\rowcolor{green!20}
+        hash   & time+ & time- & id & k \\\hline
+        0x103A & 10    & 11    & 0  & b \\\hline
+        0xD9E0 & 20    & 21    & 1  & b \\\hline
+        0x0022 & 30    & 31    & 2  & c \\\hline
+      \end{tabular}
+    \end{minipage}
+
+    \vspace{1cm}
+
+    \begin{minipage}{0.47\textwidth}
+      set\_request
+
+      \vspace{0.5cm}
+
+      \begin{tabular}{|l|l|l|l|l|}
+        \hline\rowcolor{blue!20}
+        hash   & time+ & time- & k & v \\\hline
+        0x9FBC & 5     & 6     & b & yolo \\\hline
+        0x3AF9 & 15    & 16    & c & swag \\\hline
+        0x943A & 25    & 26    & c & zardoz \\\hline
+      \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.47\textwidth}
+      \small
+      \begin{SQL}
+SELECT *
+FROM set_request
+WHERE k = 'c' AND time+ = (
+  SELECT MAX(time+)
+  FROM set_request
+  WHERE time+ < 30 AND k = 'c'
+)
+      \end{SQL}
+    \end{minipage}
+  \end{center}
+\end{block}

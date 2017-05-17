@@ -1,0 +1,65 @@
+\ProvidesPackage{sql}
+
+\RequirePackage{xcolor}
+\RequirePackage{DejaVuSansMono}
+\RequirePackage{calc}
+\RequirePackage{caption}
+\RequirePackage{listings}
+\RequirePackage{relsize}
+
+\definecolor{SolarizedGrey}{HTML}{657B83}
+\definecolor{DarkOrchid}   {HTML}{9932CC}
+\definecolor{ForestGreen}  {HTML}{009B55}
+
+\DeclareCaptionFont{white}{\color{white}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Captions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCaptionFormat{sqllisting}{\colorbox[HTML]{dab359}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1#2#3}}}
+\captionsetup[SQL]{format=sqllisting,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,small}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typesetting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language Definition
+\lstdefinelanguage{sql}{%
+  % Basic settings
+  basicstyle=\smaller\ttfamily,
+  tabsize=4,
+  %frame=single,
+  showstringspaces=false,
+  mathescape=true,
+  breaklines=true,
+  % Keywords, strings, and comments
+  keywords={%
+    SELECT,FROM,WHERE,AND,MAX
+  },
+  morestring=[b]',
+  morecomment=[l]{--},
+  % Colors and style
+  %backgroundcolor=\color{BackgroundYellow},
+  keywordstyle=\color{blue},
+  commentstyle=\color{ForestGreen},
+  stringstyle=\color{red},
+}
+
+% environment
+\lstnewenvironment{SQL}[1][]{%
+  \lstset{language=sql, #1}
+  \captionsetup{options=SQL}
+}{}
+
+
+% inline definition.
+\newcommand*{\sql}{\lstinline[{language=sql}]}
+
+% input listing definition
+\newcommand{\inputsql}[2][ ]{%
+  {%
+  \captionsetup{options=SQL}
+  % \lstset{linewidth=80\charwidth}
+  \lstinputlisting[language=sql,#1]{#2}
+  }
+}
