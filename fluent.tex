@@ -4,7 +4,7 @@ fluent(name, addr, &context, config)
   .table<int, int>("t", {{"x", "y"}})
   .scratch<int, int>("s", {{"a", "b"}})
   .channel<string, int, int>("c", {{"addr", "u", "v"}})
-  .RegisterRules([&](auto& t, auto& s, auto& c) {
+  .RegisterRules([](auto& t, auto& s, auto& c) {
     auto rule1 = s <= t.Iterable();
     auto rule2 = t <= c.Iterable() | project<1, 2>();
     return std::make_tuple(rule1, rule2);
